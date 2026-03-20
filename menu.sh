@@ -6,8 +6,10 @@ DIR_SALIDA="$DIR_EPNro1/salida"
 DIR_PROCESADO="$DIR_EPNro1/procesado"
 ARCHIVO_FINAL="$DIR_SALIDA/$FILENAME.txt"
 
+terminar_bucle = true
+
 #Ejecutar en un bucle infinito
-while true;
+while terminar_bucle;
 do
     echo "1) Crear entorno"
     echo "2)Correr proceso"
@@ -32,5 +34,7 @@ do
 	    "$DIR_EPNro1/consolidar.sh" &
 	    echo "Proceso iniciado con exido"
 	;;
+	6)
+		terminar_bucle = false
     esac
 done
