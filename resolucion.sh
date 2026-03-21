@@ -1,0 +1,34 @@
+while [ 1 -ge 0 ];
+do
+    echo "-----MENÚ DE OPCIONES-----"
+    echo "1) Crear entorno"
+    echo "2) Correr proceso"
+    echo "3) Alumnos por padrón ordenados"
+    echo "4) 10 notas más altas"
+    echo "5) Datos de alumno/a por padrón"
+    echo "6) Salir"
+    echo "-----FIN MENÚ DE OPCIONES-----"
+
+    read -p "Ingrese una opcón: " opcion
+
+    case "$opcion" in
+        1)
+            #Codigo para punto 1
+        ;;
+        2)
+            #Codigo para punto 2
+        ;;
+        3)
+            #Codigo para punto 3
+        ;;
+        4)
+            #Codigo para punto 4
+        ;;
+        5)
+            #Codigo para punto 5
+        ;;
+        6)
+            break
+        ;;
+    esac
+done
