@@ -13,7 +13,12 @@ do
 
     case "$opcion" in
         1)
-            #Codigo para punto 1
+            mkdir -p "$HOME/EPNro1/entrada" "$HOME/EPNro1/salida" "$HOME/EPNro1/procesado"
+            # Lo que hacemos acá es utilizar el comando mkdir, y este mismo puede recibir 
+            # más de 1 parámetro, entonces ya de una le ponemos todos los directorios a 
+            # a crear, obviamente dentro de home y dentro de EPNro1. El flag -p lo buscamos
+            # y nos sirvió para no tener errores por si el usuario ya tenía creado el 
+            # directorio EPNro1
         ;;
         2)
             #Codigo para punto 2
@@ -28,6 +33,7 @@ do
             #Codigo para punto 5
         ;;
         6)
+            echo "Ha salido del menú"
             break
         ;;
     esac
