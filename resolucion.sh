@@ -1,3 +1,10 @@
+if [ "$1" = "-d" ]; then
+    pkill -f consolidar.sh 
+    rm -rf "$HOME/EPNro1"
+    echo "Entorno eliminado y procesos finalizados"
+    exit 0
+fi
+
 while [ 1 -gt 0 ];
 do
     echo "-----MENÚ DE OPCIONES-----"
@@ -23,17 +30,45 @@ do
             # directorio EPNro1. Además copiamos consolidar.sh a EPNro1 
         ;;
         2)
-            "$HOME/EPnro1/consolidar.sh" &
+            "$HOME/EPNro1/consolidar.sh" &
             echo "Proceso iniciado con éxito"
         ;;
         3)
-            #Codigo para punto 3
+            ARCHIVO="$HOME/EPNro1/salida/${FILENAME}.txt"
+
+            if [ -f "$ARCHIVO" ]; then
+                sort -k1,1n "$ARCHIVO"
+            else
+                echo "No existe el archivo para poder ordenar"
+            fi
         ;;
         4)
-            #Codigo para punto 4
+            ARCHIVO="$HOME/EPNro1/salida/$FILENAME.txt"
+
+            if [ -f "$ARCHIVO" ]; then
+                echo "Las 10 notas más altas:"
+                sort -k4,4nr "$ARCHIVO" | head -10
+            else
+                echo "El archivo no existe para poder ordenar"
+            fi
         ;;
         5)
-            #Codigo para punto 5
+            ARCHIVO="$HOME/EPNro1/salida/$FILENAME.txt"
+
+            if [ -f "$ARCHIVO" ]; then
+                read -p "Ingrese número de padrón: " PADRON
+            
+                RESULTADO=$(grep "^$PADRON " "$ARCHIVO")
+            
+                if [ -n "$RESULTADO" ]; then
+                    echo "Datos del alumno:"
+                    echo "$RESULTADO"
+                else
+                    echo "No se encontró un alumno con padrón $PADRON"
+                fi
+            else
+                echo "El archivo $ARCHIVO no existe."
+            fi
         ;;
         6)
             echo "Ha salido del menú"
