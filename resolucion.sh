@@ -30,6 +30,7 @@ do
             # directorio EPNro1. Además copiamos consolidar.sh a EPNro1 
         ;;
         2)
+	    # Usamos el simbolo & al final para que el codigo corra en segundo plano.
             "$HOME/EPNro1/consolidar.sh" &
             echo "Proceso iniciado con éxito"
         ;;
