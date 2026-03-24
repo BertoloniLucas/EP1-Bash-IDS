@@ -17,5 +17,5 @@ do
 	#Mover archivo original
 	mv "$i" "$DIR_PROCESADO"
     done
-    sleep 2
+    sleep 5
 done
