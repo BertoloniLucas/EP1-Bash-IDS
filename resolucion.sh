@@ -34,40 +34,40 @@ do
             echo "Proceso iniciado con éxito"
         ;;
         3)
-            ARCHIVO="$HOME/EPNro1/salida/${FILENAME}.txt"
+            file="$HOME/EPNro1/salida/${FILENAME}.txt"
 
-            if [ -f "$ARCHIVO" ]; then
-                sort -k1,1n "$ARCHIVO"
+            if [ -f "$file" ]; then
+                sort -k1,1n "$file"
             else
                 echo "No existe el archivo para poder ordenar"
             fi
         ;;
         4)
-            ARCHIVO="$HOME/EPNro1/salida/$FILENAME.txt"
+            file="$HOME/EPNro1/salida/$FILENAME.txt"
 
-            if [ -f "$ARCHIVO" ]; then
+            if [ -f "$file" ]; then
                 echo "Las 10 notas más altas:"
-                sort -k4,4nr "$ARCHIVO" | head -10
+                sort -k4,4nr "$file" | head -10
             else
                 echo "El archivo no existe para poder ordenar"
             fi
         ;;
         5)
-            ARCHIVO="$HOME/EPNro1/salida/$FILENAME.txt"
+            file="$HOME/EPNro1/salida/$FILENAME.txt"
 
-            if [ -f "$ARCHIVO" ]; then
-                read -p "Ingrese número de padrón: " PADRON
+            if [ -f "$file" ]; then
+                read -p "Ingrese número de padrón: " padron
             
-                RESULTADO=$(grep "^$PADRON " "$ARCHIVO")
+                busqueda=$(grep "^$padron " "$file")
             
-                if [ -n "$RESULTADO" ]; then
-                    echo "Datos del alumno:"
-                    echo "$RESULTADO"
+                if [ -n "$busqueda" ]; then
+                    echo "Datos del alumno/a:"
+                    echo "$busqueda"
                 else
-                    echo "No se encontró un alumno con padrón $PADRON"
+                    echo "No se encontró un alumno/a con padrón $padron"
                 fi
             else
-                echo "El archivo $ARCHIVO no existe."
+                echo "El archivo $file no existe."
             fi
         ;;
         6)
