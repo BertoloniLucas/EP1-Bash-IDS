@@ -22,6 +22,7 @@ do
         1)
             mkdir -p "$HOME/EPNro1/entrada" "$HOME/EPNro1/salida" "$HOME/EPNro1/procesado"
             cp consolidar.sh "$HOME/EPNro1"
+			chmod +x "$HOME/EPNro1/consolidar.sh"
             echo "Entorno creado"
             # Lo que hacemos acá es utilizar el comando mkdir, y este mismo puede recibir 
             # más de 1 parámetro, entonces ya de una le ponemos todos los directorios a 
